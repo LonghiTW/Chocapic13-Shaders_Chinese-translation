@@ -1,0 +1,342 @@
+#shaders/lang/zh_tw.lang
+#Chocapic13 V9
+#CC BY-NC-SA 4.0
+
+#Atomopherics-大氣
+screen.Atmospherics=Atmospherics
+
+    option.SEA_LEVEL=霧氣最濃密高度
+        option.SEA_LEVEL.comment=體積光使用基於海拔高度的霧氣密度,這個數值代表霧氣密度最高的地方。根據世界實際地形情況調整此選項數值!
+
+    option.VL_SAMPLES=體積霧採樣值
+
+    screen.Clouds=雲層
+        option.VOLUMETRIC_CLOUDS=體積雲
+        option.CLOUDS_QUALITY=雲品質
+        option.cloud_LevelOfDetail=雲層細節等級
+            option.cloud_LevelOfDetail.comment=螢幕雲層的fbm雜訊反覆運算次數.(-1意味著沒有fbm)
+        option.cloud_ShadowLevelOfDetail=雲影細節等級
+            option.cloud_ShadowLevelOfDetail.comment=螢幕陰影的fbm雜訊反覆運算次數.(-1意味著沒有fbm)
+        option.cloud_LevelOfDetailLQ=低品質雲層細節等級
+            option.cloud_LevelOfDetailLQ.comment=螢幕低品質雲層的fbm雜訊反覆運算次數.(-1意味著沒有fbm)
+        option.cloud_ShadowLevelOfDetailLQ=低品質雲影細節等級
+            option.cloud_ShadowLevelOfDetailLQ.comment=螢幕低品質陰影的fbm雜訊反覆運算次數.(-1意味著沒有fbm)
+        option.minRayMarchSteps=最小光線行進步數
+            option.minRayMarchSteps.comment=天頂向螢幕上的雲層投射的最小光線行進步數.
+        option.maxRayMarchSteps=最大光線行進步數
+            option.maxRayMarchSteps.comment=天頂向螢幕上的雲層投射的最大光線行進步數.
+        option.minRayMarchStepsLQ=最小低品質光線行進步數
+            option.minRayMarchStepsLQ.comment=天頂向螢幕上的雲層投射的最小低品質光線行進步數.
+        option.maxRayMarchStepsLQ=最大低品質光線行進步數
+            option.maxRayMarchStepsLQ.comment=天頂向螢幕上的雲層投射的最大低品質光線行進步數.
+        option.cloudDensity=雲層密度
+            option.cloudDensity.comment=雲密度,0.04-0.06大約是irl的數值.
+        option.cloudCoverage=雲層覆蓋率
+            option.cloudCoverage.comment=雲層覆蓋率
+        option.fbmAmount=Fbm Amount
+            option.fbmAmount.comment=為雲層形狀添加的雜訊量.
+        option.fbmPower1=Fbm Power1
+            option.fbmPower1.comment=更高的值會增加雲層形狀的高頻細節.
+        option.fbmPower2=Fbm Power2
+            option.fbmPower2.comment=較低的值會增加雲層形狀的高頻細節.
+        option.cloudMieG=雲層米氏散射G1值
+            option.cloudMieG.comment=多重散射的近似值。接近1的值會在太陽周圍形成一個強烈的亮度峰值,而在其他地方則很弱。接近0的值意味著均勻的霧氣.
+        option.cloudMieG2=雲層米氏散射G2值
+            option.cloudMieG2.comment=多重散射的近似值。接近1的值會在太陽周圍形成一個強烈的亮度峰值,而在其他地方則很弱。接近0的值意味著均勻的霧氣.
+        option.cloudMie2Multiplier=雲層米氏散射2倍率
+            option.cloudMie2Multiplier.comment=多重散射近似值的倍率.
+
+    screen.Fog_Color=霧氣顏色
+        option.fog_mieg1=霧氣米氏散射G1值
+        option.fog_mieg2=霧氣米氏散射G2值
+        option.fog_coefficientRayleighR=霧氣瑞利係數 - 紅色
+        option.fog_coefficientRayleighG=霧氣瑞利係數 - 綠色
+        option.fog_coefficientRayleighB=霧氣瑞利係數 - 藍色
+        option.fog_coefficientMieR=霧氣米氏係數 - 紅色
+        option.fog_coefficientMieG=霧氣米氏係數 - 綠色
+        option.fog_coefficientMieB=霧氣米氏係數 - 藍色
+
+    screen.Fog_Densities=霧氣密度
+        option.FOG_RAIN_MULTIPLIER=雨天霧氣倍率
+            option.FOG_RAIN_MULTIPLIER.comment=影響雨天霧氣濃度
+        option.FOG_TOD_MULTIPLIER=日間霧氣倍率
+            option.FOG_TOD_MULTIPLIER.comment=影響日常時間霧氣濃度
+        option.CLOUDY_FOG_AMOUNT=雲霧數量
+        option.BASE_FOG_AMOUNT=霧氣數量
+            option.BASE_FOG_AMOUNT.comment=基本霧氣濃度,不影響雲霧密度.
+        option.ATMOSPHERIC_DENSITY=大氣密度
+        option.Underwater_Fog_Density=水霧密度
+
+    option.BLOOMY_FOG=泛光霧
+
+    option.VL_RENDER_RESOLUTION=體積霧渲染解析度
+        option.VL_RENDER_RESOLUTION.comment=降低計算體積霧的解析度。(0.5 = 默認解析度的一半).
+
+    option.VL_Clouds_Shadows=體積雲影
+        option.VL_Clouds_Shadows.comment=從體積光計算中考慮雲影(慢)
+
+
+#TAA Options-時間性抗鋸齒
+screen.TAA_OPTIONS=時間性抗鋸齒[TAA]
+
+    option.TAA=時間性抗鋸齒[TAA]
+        option.TAA.comment=如果禁用此選項,應相應增加大多數選項的採樣數,因為需要依靠TAA來過濾噪點.
+
+    #void
+
+    option.BLEND_FACTOR=混合係數
+        option.BLEND_FACTOR.comment=更高的值意味更多的閃爍,但圖像更清晰。更低的值意味較少的閃爍,但圖像較模糊.
+
+    option.CLOSEST_VELOCITY=最近速率[Closest Velocity]
+        option.CLOSEST_VELOCITY.comment=犧牲一定的性能換取在運動時更好的邊緣品質
+
+    option.NO_CLIP=無 反拖影 模式
+        option.NO_CLIP.comment=移除所有使用的反拖影技術，並創建一個清晰銳利的圖像(適合靜態截圖).
+
+    option.TAA_UPSCALING=TAA升採樣
+        option.TAA_UPSCALING.comment=降低渲染解析度並使用TAA來組合幾個低解析度的圖像(大大提高了性能)。用它來代替著色器渲染品質選項.如果你想提高FPS(將其設為1)。如果你想提高品質,請禁用這個選項並增加著色器渲染品質倍數.
+
+    option.RENDER_SCALE_X=X軸渲染解析度縮放
+        option.RENDER_SCALE_X.comment=X軸渲染解析度縮放係數.
+
+    option.RENDER_SCALE_Y=Y軸渲染解析度縮放
+        option.RENDER_SCALE_Y.comment=X軸渲染解析度縮放係數.
+
+
+#Light-照明
+screen.Lighting=照明
+
+    screen.Torch=火把
+        option.TORCH_R=火把 - 紅色
+        option.TORCH_G=火把 - 綠色
+        option.TORCH_B=火把 - 藍色
+        option.TORCH_AMOUNT=火把 - 亮度
+
+    screen.Sky=天空
+        screen.Sky_coefficients=天空係數
+            option.Sky_Brightness=天空亮度
+            option.sky_mieg=天空米氏散射G值
+            option.sky_coefficientRayleighR=天空瑞利係數 - 紅色
+            option.sky_coefficientRayleighG=天空瑞利係數 - 綠色
+            option.sky_coefficientRayleighB=天空瑞利係數 - 藍色
+            option.sky_coefficientMieR=天空米氏係數 - 紅色
+            option.sky_coefficientMieG=天空米氏係數 - 綠色
+            option.sky_coefficientMieB=天空米氏係數 - 藍色
+        screen.Sun_and_Moon_Colors=日月顏色
+            option.sunColorR=太陽 - 紅色
+            option.sunColorG=太陽 - 綠色
+            option.sunColorB=太陽 - 藍色
+            option.sun_illuminance=太陽 - 光照度
+            option.moonColorR=月亮 - 紅色
+            option.moonColorG=月亮 - 綠色
+            option.moonColorB=月亮 - 藍色
+            option.moon_illuminance=月亮 - 光照度
+        option.sunPathRotation=日月斜角
+
+    screen.Ambient=環境
+        option.MIN_LIGHT_AMOUNT=最小光量
+        option.SEPARATE_AO=分離式環境光遮蔽
+        option.ambientOcclusionLevel=環境光遮蔽水準
+        option.Ambient_Mult=環境光混合倍率
+
+
+#Camera-鏡頭
+screen.Camera=鏡頭
+
+    option.EXPOSURE_MULTIPLIER=曝光倍率
+
+    option.Exposure_Speed=曝光速度
+
+    option.AUTO_EXPOSURE=自動曝光
+        option.AUTO_EXPOSURE.comment=強烈推薦保持開啟，除非需要截圖。
+
+    option.Manual_exposure_value=手動曝光值
+
+    option.BLOOM_STRENGTH=泛光強度
+
+    #option.BLOOM_QUALITY=泛光品質
+    #    option.BLOOM_QUALITY.comment=拉低以減少計算泛光的解析度。0.5=默認解析度的一半.
+
+    option.FinalR=最終圖像 - 紅色偏移
+
+    option.FinalG=最終圖像 - 綠色偏移
+
+    option.FinalB=最終圖像 - 藍色偏移
+
+    screen.Tonemapping=色調映射
+        option.TONEMAP=色調映射方法
+            option.TONEMAP.comment=不同的色調映射方法.
+        option.USE_ACES_COLORSPACE_APPROXIMATION=ACES色彩空間的近似值擬合
+            option.USE_ACES_COLORSPACE_APPROXIMATION.comment=ACES=Academy Color Encoding System,是一套顏色編碼系統。決定色調映射是否使用另一個色彩空間.
+        option.SATURATION=飽和度
+            option.SATURATION.comment=負值使顏色不飽和。正值使顏色飽和。0值意味著沒有變化.
+        option.CROSSTALK=去飽和度[暫定]
+            option.CROSSTALK.comment=使明亮的顏色不飽和,在較暗的區域保持飽和度(如果是負值,則反轉)。有助於去除大多數螢光色.
+
+    screen.DepthOfField=景深
+        option.DOF=景深(DOF)
+            option.DOF.comment=啟用景深選項(對不在聚焦區域的物體進行虛化模糊處理)
+        option.HQ_DOF=高品質景深(HQ DOF)
+            option.HQ_DOF.comment=慢! 強制使用圓形虛化! 使用4倍噪音樣本以消除模糊及大尺寸下的採樣偽影.
+        option.HEXAGONAL_BOKEH=六邊形虛化
+            option.HEXAGONAL_BOKEH.comment=關:圓形虛化。開:六邊形虛化.
+        option.AUTOFOCUS=自動對焦
+            option.AUTOFOCUS.comment=此選項為關時,亮度滑塊可以調節手動對焦距離.
+        option.focal=焦距
+            option.focal.comment=單位是釐米.
+        option.aperture=光圈
+            option.aperture.comment=單位是釐米.
+        option.MANUAL_FOCUS=手動對焦距離
+            option.MANUAL_FOCUS.comment=當 自動對焦 選項關閉時,通過調節此選項確定對焦距離(單位是米).
+        option.FAR_BLUR_ONLY=僅虛化遠處
+            option.FAR_BLUR_ONLY.comment=移除那些比對焦點更靠近鏡頭物體的景深效果.
+        option.DoF_Adaptation_Speed=景深虛化適應速度
+
+    screen.Purkinje_effect=薄暮現象
+        option.Purkinje_strength=薄暮現象 - 強度
+            option.Purkinje_strength.comment=模擬眼睛在低光強度下無法清顏色的情況。0值意味著在低曝光情況下沒有薄暮現象.
+        option.Purkinje_strength=薄暮現象 - 強度
+            option.Purkinje_strength.comment=模擬眼睛在低光強度下無法清顏色的情況。0值意味著在低曝光情況下沒有薄暮現象.
+        option.Purkinje_R=薄暮現象 - 紅色程度
+        option.Purkinje_G=薄暮現象 - 綠色程度
+        option.Purkinje_B=薄暮現象 - 藍色程度
+        option.Purkinje_Multiplier=薄暮現象倍率
+            option.Purkinje_Multiplier.comment=決定薄暮現象影響亮度的程度。
+
+
+#Shading-陰影
+screen.Shading=陰影
+
+    option.Texture_MipMap_Bias=紋理MipMap偏移
+        option.Texture_MipMap_Bias.comment=對紋理使用另一個 MipMap 等級。當提高此項數值時,將增加紋理的細節,但可能會引起大量的白點閃爍。
+
+    option.DISABLE_ALPHA_MIPMAPS=禁用半透明MipMap
+        option.DISABLE_ALPHA_MIPMAPS.comment=禁用半透明方塊的MipMaps，如樹葉，在某些情況下可能會損失一些影格速率。
+
+    screen.Shadows=陰影
+        screen.Filtering=降噪
+            option.Variable_Penumbra_Shadows=可變半陰影(VPS)
+                option.Variable_Penumbra_Shadows.comment=距離被投射物體時越遠的陰影越模糊(會降低影格速率).
+            option.VPS_Search_Samples=可變半陰影(VPS)的檢索採樣數
+                option.VPS_Search_Samples.comment=對被投射物體時的檢索採樣次數.
+            option.Min_Shadow_Filter_Radius=最小陰影過濾半徑
+                option.Min_Shadow_Filter_Radius.comment=如果沒有啟用VPS,此選項數值將用作陰影篩檢程式的大小.
+            option.Max_Shadow_Filter_Radius=最大陰影過濾半徑
+                option.Max_Shadow_Filter_Radius.comment=如果沒有啟用VPS,此選項將不會有作用。當此選項數值設置過大時會出現問題.
+            option.Max_Filter_Depth=最大過濾深度
+                option.Max_Filter_Depth.comment=此選項數值意味著 在被投射物體時與陰影投射位置的距離大小達到此數值時 陰影篩檢程式的尺寸達到最大.
+            option.SHADOW_FILTER_SAMPLE_COUNT=陰影過濾採樣數
+                option.SHADOW_FILTER_SAMPLE_COUNT.comment=用來過濾實際陰影的採樣數.
+        screen.SSGI_Parameters=SSGI參數
+            screen.SSGI_Parameters.comment=SSGI: 螢幕空間全域光照.
+            option.SSGI=SSGI
+                option.SSGI.comment=SSGI: 螢幕空間全域光照.
+            option.RAY_COUNT=光路數量
+            option.STEPS=步進次數
+            #option.STEP_LENGTH=步進長度
+        option.SCREENSPACE_CONTACT_SHADOWS=螢幕空間接觸陰影
+            option.SCREENSPACE_CONTACT_SHADOWS.comment=在螢幕空間中從太陽獲得投射陰影,以便於在陰影範圍外或者在物體接觸處投射陰影。可能在高解析度情況下有巨大的性能損耗.
+        option.shadowMapResolution=陰影貼圖解析度
+            option.shadowMapResolution.comment=很大可能會在選擇 16384 選項的時候崩潰遊戲.
+        option.CLOUDS_SHADOWS=雲影
+        option.CLOUDS_SHADOWS_STRENGTH=雲影強度
+        option.shadowDistanceRenderMul=陰影距離渲染倍數
+            option.shadowDistanceRenderMul.comment=當設置為 -1.0 時,可以提高陰影渲染距離,但是會犧牲性能.
+        option.shadowDistance=陰影距離
+            option.shadowDistance.comment=當 陰影距離渲染倍數 設置為-1.0的時候已經完全不是線性渲染,此時將本選項設置為175可滿足40區塊的渲染距離.
+        option.SHADOW_FRUSTRUM_CULLING=陰影視錐剔除
+            option.SHADOW_FRUSTRUM_CULLING.comment=此功能在1.17+失效。如果啟用此選項,在陰影渲染過程中會剔除大部分不會在玩家視野中投射陰影的方塊。提高性能,但可能會產生不正確圖像,並導致遠處被遮擋的陰影閃爍.
+        option.CAVE_LIGHT_LEAK_FIX=洞穴漏光修復
+            option.CAVE_LIGHT_LEAK_FIX.comment=以粗暴的方式來消除滲入洞穴的陽光。可能會在某些地方覺得特別陰暗.
+        option.SHADOW_DISABLE_ALPHA_MIPMAPS=陰影圖禁用半透明MipMaps
+            option.SHADOW_DISABLE_ALPHA_MIPMAPS.comment=陰影圖禁用半透明方塊的MipMaps,如樹葉,在某些情況下可能會損失一些影格速率。
+        option.Stochastic_Transparent_Shadows=隨機透明陰影
+            option.Stochastic_Transparent_Shadows.comment=強烈建議啟用 陰影禁用透明度mipmaps 選項。使用雜訊來類比透明物體的陰影（並不是彩色的）。也建議增大 最小陰影過濾半徑 選項.
+
+        screen.POM=視差(POM)
+            option.POM_MAP_RES=視差貼圖解析度
+                option.POM_MAP_RES.comment=提高數值以提升視差品質。
+            option.POM=視差(POM)
+            option.POM_DEPTH=視差深度
+            option.MAX_ITERATIONS=最大反覆運算次數
+                option.MAX_ITERATIONS.comment=拉高以提高投射角的品質(降低性能)。
+            option.MAX_DIST=視差最大距離
+                option.MAX_DIST.comment=拉高以增加計算視差的距離。
+            option.USE_LUMINANCE_AS_HEIGHTMAP=用亮度作為高度圖
+                option.USE_LUMINANCE_AS_HEIGHTMAP.comment=可以在任何資源包上生成視差(在某些情況下可能看起來比較奇怪)。
+
+    option.BICUBIC_UPSCALING=雙立方插值升採樣
+        option.BICUBIC_UPSCALING.comment=當渲染精細度不為1x時，提供更好的插值演算法，更慢。
+
+    option.CONTRAST_ADAPTATIVE_SHARPENING=自我調整對比銳化
+
+    option.SHARPENING=銳化
+
+
+#Wavy stuff-搖擺相關
+screen.Wavy_stuff=搖擺相關
+
+    option.WAVY_STRENGTH=搖擺強度
+
+    option.WAVY_SPEED=搖擺速度
+
+    option.WAVY_PLANTS=搖擺植物
+
+
+#Water and transparencies-水和半透明方塊
+screen.Water_and_transparencies=水和半透明方塊
+
+    option.Dirt_Amount=水體渾濁程度
+        option.Dirt_Amount.comment=水中有多少汙物。
+
+    option.Dirt_Mie_Phase=汙物相位分佈
+        option.Dirt_Mie_Phase.comment=本選項值接近1時,會在太陽周圍形成一個強烈的峰值,在其他地方則很弱,接近0的值意味著均勻的霧氣.
+
+    #option.rayMarchSampleCount=體積化採樣數
+    #    option.rayMarchSampleCount.comment=水下體積霧化所使用的採樣數量。
+
+    option.SCREENSPACE_REFLECTIONS=螢幕空間反射(SSR)
+        option.SCREENSPACE_REFLECTIONS.comment=在高解析度資源包或者高品質渲染下會非常影響性能,特別是在冰面上的反射.
+
+    option.SSR_STEPS=螢幕空間反射步進
+
+    option.USE_QUARTER_RES_DEPTH=25%解析度深度緩衝
+        option.USE_QUARTER_RES_DEPTH.comment=用25%的解析度深度緩衝器來採樣進行螢幕空間反射。提升性能,但是可能會有部分區域顯示不正確.
+
+    option.SUN_MICROFACET_SPECULAR=太陽微表面鏡面貼圖
+        option.SUN_MICROFACET_SPECULAR.comment=啟用此選項將使用更真實的微面模型作為太陽的反射,不啟用則僅反射太陽。對性能沒有影響.
+
+    option.Water_Top_Layer=水面頂層高度
+        option.Water_Top_Layer.comment=當在水下並且當 光照映射深度估算 關閉時。 假設水面頂層在這個數值對應的高度(Y值)來進行水下照明的計算。如果設置不正確,水下會看起來很奇怪.
+
+    option.lightMapDepthEstimation=光照映射深度估算
+        option.lightMapDepthEstimation.comment=如果關閉,將使用玩家的眼睛位置和水面頂層高度選項來確定玩家在水中的深度.這在很多情況下看起來是錯誤的。但如果用原版光照深度來代替可以改善這種情況,但是會在海洋,湖泊和河流表現得更糟糕.
+
+    screen.Advanced=進階
+        option.Dirt_Scatter_R=汙物紅色擴散
+            option.Dirt_Scatter_R.comment=汙物擴散紅色能力.
+        option.Dirt_Scatter_G=汙物綠色擴散
+            option.Dirt_Scatter_G.comment=汙物擴散綠色能力.
+        option.Dirt_Scatter_B=汙物藍色擴散
+            option.Dirt_Scatter_B.comment=汙物擴散藍色能力.
+        option.Dirt_Absorb_R=汙物紅色吸收
+            option.Dirt_Absorb_R.comment=汙物吸收紅色能力.
+        option.Dirt_Absorb_G=汙物綠色吸收
+            option.Dirt_Absorb_G.comment=汙物吸收綠色能力.
+        option.Dirt_Absorb_B=汙物藍色吸收
+            option.Dirt_Absorb_B.comment=汙物吸收藍色能力.
+        option.Water_Absorb_R=水體紅色吸收
+            option.Water_Absorb_R.comment=水體吸收紅色能力.
+        option.Water_Absorb_G=水體綠色吸收
+            option.Water_Absorb_G.comment=水體吸收綠色能力.
+        option.Water_Absorb_B=水體藍色吸收
+            option.Water_Absorb_B.comment=水體吸收藍色能力.
+
+#9.1版本新增
+#option.Emissive_Strength=發光強度
+
+#option.Depth_Write_POM=視差寫入深度
+#    option.Depth_Write_POM.comment=視差調整了實際的位置，螢幕空間陰影借此投射陰影到視差方塊上
+
+#option.AutoGeneratePOMTextures=自動生成視差紋理
+#    option.AutoGeneratePOMTextures.comment=可以在任意紋理包上生成視差(可能在某些場景下看起來很糟糕)
