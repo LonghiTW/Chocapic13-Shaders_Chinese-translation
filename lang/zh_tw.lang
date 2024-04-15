@@ -3,171 +3,173 @@
 #CC BY-NC-SA 4.0
 
 #Atomopherics-大氣
-screen.Atmospherics=Atmospherics
+screen.Atmospherics=大氣
 
-    option.SEA_LEVEL=霧氣最濃密高度
-        option.SEA_LEVEL.comment=體積光使用基於海拔高度的霧氣密度,這個數值代表霧氣密度最高的地方。根據世界實際地形情況調整此選項數值!
+    option.SEA_LEVEL=最濃霧氣高度
 
-    option.VL_SAMPLES=體積霧採樣值
+    option.VL_SAMPLES=體積光取樣數
+        option.VL_SAMPLES.comment=數值越高越lag，但效果也越逼真。
 
-    screen.Clouds=雲層
+    screen.Clouds=雲
         option.VOLUMETRIC_CLOUDS=體積雲
-        option.CLOUDS_QUALITY=雲品質
-        option.cloud_LevelOfDetail=雲層細節等級
-            option.cloud_LevelOfDetail.comment=螢幕雲層的fbm雜訊反覆運算次數.(-1意味著沒有fbm)
-        option.cloud_ShadowLevelOfDetail=雲影細節等級
-            option.cloud_ShadowLevelOfDetail.comment=螢幕陰影的fbm雜訊反覆運算次數.(-1意味著沒有fbm)
-        option.cloud_LevelOfDetailLQ=低品質雲層細節等級
-            option.cloud_LevelOfDetailLQ.comment=螢幕低品質雲層的fbm雜訊反覆運算次數.(-1意味著沒有fbm)
-        option.cloud_ShadowLevelOfDetailLQ=低品質雲影細節等級
-            option.cloud_ShadowLevelOfDetailLQ.comment=螢幕低品質陰影的fbm雜訊反覆運算次數.(-1意味著沒有fbm)
+            option.VOLUMETRIC_CLOUDS.comment=將其關閉會有更好的效能，同使使用遊戲原版雲的設定。
+        option.CLOUDS_QUALITY=品質
+        option.cloud_LevelOfDetail=外型細節層次
+            option.cloud_LevelOfDetail.comment=用於模擬雲層外型的雜訊函數迭代次數。
+        option.cloud_ShadowLevelOfDetail=陰影細節層次
+            option.cloud_ShadowLevelOfDetail.comment=用於模擬雲上陰影(不是雲在地上的影子)的雜訊函數迭代次數。
+        option.cloud_LevelOfDetailLQ=外型細節層次(低品質)
+            option.cloud_LevelOfDetailLQ.comment=與外型細節層次設定相同，但用於反射效果。
+        option.cloud_ShadowLevelOfDetailLQ=陰影細節層次(低品質)
+            option.cloud_ShadowLevelOfDetailLQ.comment=與陰影細節層次設定相同，但用於反射效果。
         option.minRayMarchSteps=最小光線行進步數
-            option.minRayMarchSteps.comment=天頂向螢幕上的雲層投射的最小光線行進步數.
+            option.minRayMarchSteps.comment=光線與雲層相交的最小找尋次數。※最小與最大值近似於天頂到地平的梯度。
         option.maxRayMarchSteps=最大光線行進步數
-            option.maxRayMarchSteps.comment=天頂向螢幕上的雲層投射的最大光線行進步數.
-        option.minRayMarchStepsLQ=最小低品質光線行進步數
-            option.minRayMarchStepsLQ.comment=天頂向螢幕上的雲層投射的最小低品質光線行進步數.
-        option.maxRayMarchStepsLQ=最大低品質光線行進步數
-            option.maxRayMarchStepsLQ.comment=天頂向螢幕上的雲層投射的最大低品質光線行進步數.
-        option.cloudDensity=雲層密度
-            option.cloudDensity.comment=雲密度,0.04-0.06大約是irl的數值.
-        option.cloudCoverage=雲層覆蓋率
-            option.cloudCoverage.comment=雲層覆蓋率
-        option.fbmAmount=Fbm Amount
-            option.fbmAmount.comment=為雲層形狀添加的雜訊量.
-        option.fbmPower1=Fbm Power1
-            option.fbmPower1.comment=更高的值會增加雲層形狀的高頻細節.
-        option.fbmPower2=Fbm Power2
-            option.fbmPower2.comment=較低的值會增加雲層形狀的高頻細節.
-        option.cloudMieG=雲層米氏散射G1值
-            option.cloudMieG.comment=多重散射的近似值。接近1的值會在太陽周圍形成一個強烈的亮度峰值,而在其他地方則很弱。接近0的值意味著均勻的霧氣.
-        option.cloudMieG2=雲層米氏散射G2值
-            option.cloudMieG2.comment=多重散射的近似值。接近1的值會在太陽周圍形成一個強烈的亮度峰值,而在其他地方則很弱。接近0的值意味著均勻的霧氣.
-        option.cloudMie2Multiplier=雲層米氏散射2倍率
-            option.cloudMie2Multiplier.comment=多重散射近似值的倍率.
+            option.maxRayMarchSteps.comment=光線與雲層相交的最大找尋次數。※最小與最大值近似於天頂到地平的梯度。
+        option.minRayMarchStepsLQ=最小光線行進步數(低品質)
+            option.minRayMarchStepsLQ.comment=與最小光線行進步數設定相同，但用於反射效果。
+        option.maxRayMarchStepsLQ=最大光線行進步數(低品質)
+            option.maxRayMarchStepsLQ.comment=與最大光線行進步數設定相同，但用於反射效果。
+        option.cloudDensity=密度
+            option.cloudDensity.comment=雲個體的密度決定雲的透明度，不影響雲的分布。※預設的雲層偏厚，可以調低如0.392，0.04~0.06則約是現實中雲的效果。
+        option.cloudCoverage=覆蓋率
+            option.cloudCoverage.comment=雲層覆蓋率即天上有多少雲。
+        option.fbmAmount=FBM數量
+            option.fbmAmount.comment=碎形布朗運動(FBM)雜訊函數疊加的數量。※推測其即倍頻程(Octave)。
+        option.fbmPower1=FBM Power1
+            option.fbmPower1.comment=※推測其即增益(Gain)，係指FBM雜訊函數疊加振幅的倍數。
+        option.fbmPower2=FBM Power2
+            option.fbmPower2.comment=※推測其即間隙性(Lacunarity)，係指FBM雜訊函數疊加頻率的倍數。
+        option.cloudMieG=米氏散射G1值
+            option.cloudMieG.comment=角增益G1控制光在雲層周圍的散射方式。數值越大會形成越明顯的日暈。
+        option.cloudMieG2=米氏散射G2值
+            option.cloudMieG2.comment=角增益G2控制光在雲層周圍的散射方式。數值越大會形成越明顯的日暈。
+        option.cloudMie2Multiplier=米氏散射乘子
 
     screen.Fog_Color=霧氣顏色
-        option.fog_mieg1=霧氣米氏散射G1值
-        option.fog_mieg2=霧氣米氏散射G2值
-        option.fog_coefficientRayleighR=霧氣瑞利係數 - 紅色
-        option.fog_coefficientRayleighG=霧氣瑞利係數 - 綠色
-        option.fog_coefficientRayleighB=霧氣瑞利係數 - 藍色
-        option.fog_coefficientMieR=霧氣米氏係數 - 紅色
-        option.fog_coefficientMieG=霧氣米氏係數 - 綠色
-        option.fog_coefficientMieB=霧氣米氏係數 - 藍色
+        option.fog_mieg1=米氏散射G1值
+        option.fog_mieg2=米氏散射G2值
+        option.fog_coefficientRayleighR=瑞利散射係數-紅光
+        option.fog_coefficientRayleighG=瑞利散射係數-綠光
+        option.fog_coefficientRayleighB=瑞利散射係數-藍光
+        option.fog_coefficientMieR=米氏散射係數-紅光
+        option.fog_coefficientMieG=米氏散射係數-綠光
+        option.fog_coefficientMieB=米氏散射係數-藍光
 
     screen.Fog_Densities=霧氣密度
-        option.FOG_RAIN_MULTIPLIER=雨天霧氣倍率
-            option.FOG_RAIN_MULTIPLIER.comment=影響雨天霧氣濃度
-        option.FOG_TOD_MULTIPLIER=日間霧氣倍率
-            option.FOG_TOD_MULTIPLIER.comment=影響日常時間霧氣濃度
+        option.FOG_RAIN_MULTIPLIER=雨天乘子
+            option.FOG_RAIN_MULTIPLIER.comment=影響雨天的霧氣濃度。※可以降低至0.2來增加清晰度。
+        option.FOG_TOD_MULTIPLIER=時序乘子
+            option.FOG_TOD_MULTIPLIER.comment=影響隨遊戲時間變化而改變的霧氣濃度。※可以降低至0.4來增加清晰度。
         option.CLOUDY_FOG_AMOUNT=雲霧數量
-        option.BASE_FOG_AMOUNT=霧氣數量
-            option.BASE_FOG_AMOUNT.comment=基本霧氣濃度,不影響雲霧密度.
+            option.CLOUDY_FOG_AMOUNT.comment=※可以降低至0.8來增加清晰度。
+        option.BASE_FOG_AMOUNT=基礎霧氣數量
+            option.BASE_FOG_AMOUNT.comment=※可以增加至3.0來增加遠處霧氣，形成良好的遠處模糊效果。
         option.ATMOSPHERIC_DENSITY=大氣密度
-        option.Underwater_Fog_Density=水霧密度
+        option.Underwater_Fog_Density=水下霧氣密度
 
-    option.BLOOMY_FOG=泛光霧
+    option.BLOOMY_FOG=光暈霧
 
-    option.VL_RENDER_RESOLUTION=體積霧渲染解析度
-        option.VL_RENDER_RESOLUTION.comment=降低計算體積霧的解析度。(0.5 = 默認解析度的一半).
+    option.VL_RENDER_RESOLUTION=體積光彩現解析度
 
-    option.VL_Clouds_Shadows=體積雲影
-        option.VL_Clouds_Shadows.comment=從體積光計算中考慮雲影(慢)
+    option.VL_Clouds_Shadows=體積雲陰影
 
 
-#TAA Options-時間性抗鋸齒
-screen.TAA_OPTIONS=時間性抗鋸齒[TAA]
+#TAA Options-時間性反鋸齒
+screen.TAA_OPTIONS=時間性反鋸齒(TAA)
 
-    option.TAA=時間性抗鋸齒[TAA]
-        option.TAA.comment=如果禁用此選項,應相應增加大多數選項的採樣數,因為需要依靠TAA來過濾噪點.
+    option.TAA=時間性反鋸齒(TAA)
 
     #void
 
-    option.BLEND_FACTOR=混合係數
-        option.BLEND_FACTOR.comment=更高的值意味更多的閃爍,但圖像更清晰。更低的值意味較少的閃爍,但圖像較模糊.
+    option.BLEND_FACTOR=混合因子
+        option.BLEND_FACTOR.comment=更高的值會有更清晰的影像，但也會增加閃爍量。
 
-    option.CLOSEST_VELOCITY=最近速率[Closest Velocity]
-        option.CLOSEST_VELOCITY.comment=犧牲一定的性能換取在運動時更好的邊緣品質
+    option.CLOSEST_VELOCITY=動態品質
 
-    option.NO_CLIP=無 反拖影 模式
-        option.NO_CLIP.comment=移除所有使用的反拖影技術，並創建一個清晰銳利的圖像(適合靜態截圖).
+    option.NO_CLIP=擷取模式
+        option.NO_CLIP.comment=建立一個清晰的影像，但需要關閉反重影功能，適合靜態截圖。
 
-    option.TAA_UPSCALING=TAA升採樣
-        option.TAA_UPSCALING.comment=降低渲染解析度並使用TAA來組合幾個低解析度的圖像(大大提高了性能)。用它來代替著色器渲染品質選項.如果你想提高FPS(將其設為1)。如果你想提高品質,請禁用這個選項並增加著色器渲染品質倍數.
+    option.TAA_UPSCALING=TAA升級
+        option.TAA_UPSCALING.comment=降低彩現解析度並利用TAA來增強影像，可以提高效能，但品質比不上直接提高「著色器彩現品質」選項。若要開啟TAA升級功能，請將著色器彩現品質設為1。
 
-    option.RENDER_SCALE_X=X軸渲染解析度縮放
-        option.RENDER_SCALE_X.comment=X軸渲染解析度縮放係數.
+    option.RENDER_SCALE_X=X軸彩現解析度乘子
+        option.RENDER_SCALE_X.comment=TAA彩現時的X軸解析度乘子。X軸與Y軸彩現解析度縮放係數務必保持相同。
 
-    option.RENDER_SCALE_Y=Y軸渲染解析度縮放
-        option.RENDER_SCALE_Y.comment=X軸渲染解析度縮放係數.
+    option.RENDER_SCALE_Y=Y軸彩現解析度乘子
+        option.RENDER_SCALE_Y.comment=TAA彩現時的Y軸解析度乘子。X軸與Y軸彩現解析度縮放係數務必保持相同。
 
 
 #Light-照明
 screen.Lighting=照明
 
-    screen.Torch=火把
-        option.TORCH_R=火把 - 紅色
-        option.TORCH_G=火把 - 綠色
-        option.TORCH_B=火把 - 藍色
-        option.TORCH_AMOUNT=火把 - 亮度
+    screen.Torch=光源
+        screen.Torch.comment=※原文雖然是Torch，但實際是指所有光源，不僅是火把。
+        option.TORCH_R=光源-紅光
+        option.TORCH_G=光源-綠光
+        option.TORCH_B=光源-藍光
+        option.TORCH_AMOUNT=光源-亮度
 
     screen.Sky=天空
         screen.Sky_coefficients=天空係數
-            option.Sky_Brightness=天空亮度
-            option.sky_mieg=天空米氏散射G值
-            option.sky_coefficientRayleighR=天空瑞利係數 - 紅色
-            option.sky_coefficientRayleighG=天空瑞利係數 - 綠色
-            option.sky_coefficientRayleighB=天空瑞利係數 - 藍色
-            option.sky_coefficientMieR=天空米氏係數 - 紅色
-            option.sky_coefficientMieG=天空米氏係數 - 綠色
-            option.sky_coefficientMieB=天空米氏係數 - 藍色
+            option.Sky_Brightness=亮度
+            option.sky_mieg=米氏散射G值
+            option.sky_coefficientRayleighR=瑞利散射係數-紅光
+            option.sky_coefficientRayleighG=瑞利散射係數-綠光
+            option.sky_coefficientRayleighB=瑞利散射係數-藍光
+            option.sky_coefficientMieR=米氏散射係數-紅光
+            option.sky_coefficientMieG=米氏散射係數-綠光
+            option.sky_coefficientMieB=米氏散射係數-藍光
         screen.Sun_and_Moon_Colors=日月顏色
-            option.sunColorR=太陽 - 紅色
-            option.sunColorG=太陽 - 綠色
-            option.sunColorB=太陽 - 藍色
-            option.sun_illuminance=太陽 - 光照度
-            option.moonColorR=月亮 - 紅色
-            option.moonColorG=月亮 - 綠色
-            option.moonColorB=月亮 - 藍色
-            option.moon_illuminance=月亮 - 光照度
+            option.sunColorR=太陽-紅光
+            option.sunColorG=太陽-綠光
+            option.sunColorB=太陽-藍光
+            option.sun_illuminance=太陽-照度
+            option.moonColorR=月亮-紅光
+            option.moonColorG=月亮-綠光
+            option.moonColorB=月亮-藍光
+            option.moon_illuminance=月亮-照度
         option.sunPathRotation=日月斜角
+            option.sunPathRotation.comment=太陽與月亮在正午時與天頂的夾角。0即日正當中，正數偏北、負數偏南。該值也會影響光照顏色。
 
-    screen.Ambient=環境
-        option.MIN_LIGHT_AMOUNT=最小光量
-        option.SEPARATE_AO=分離式環境光遮蔽
-        option.ambientOcclusionLevel=環境光遮蔽水準
-        option.Ambient_Mult=環境光混合倍率
+    screen.Ambient=環境光
+        screen.Ambient.comment=環境光會根據周圍環境的情況，以不同方式呈現你看到的物體亮度，如方塊的角落或邊緣會變得較暗。
+        option.MIN_LIGHT_AMOUNT=最低光量
+            option.MIN_LIGHT_AMOUNT.comment=允許被彩現的最低光量。有助於避免螢幕上的黑點。
+        option.SEPARATE_AO=環境光遮蔽開關
+        option.ambientOcclusionLevel=環境光遮蔽等級
+        option.Ambient_Mult=環境光強度乘子
 
 
-#Camera-鏡頭
-screen.Camera=鏡頭
+#Camera-攝影機
+screen.Camera=攝影機
 
-    option.EXPOSURE_MULTIPLIER=曝光倍率
+    option.EXPOSURE_MULTIPLIER=曝光乘子
+        option.EXPOSURE_MULTIPLIER.comment=※可以視為提高亮度。
 
-    option.Exposure_Speed=曝光速度
+    option.Exposure_Speed=曝光速率
+        option.Exposure_Speed.comment=明暗場景轉換的適應性。
 
     option.AUTO_EXPOSURE=自動曝光
-        option.AUTO_EXPOSURE.comment=強烈推薦保持開啟，除非需要截圖。
+        option.AUTO_EXPOSURE.comment=一般維持開啟即可，除非需要特定的曝光值來截圖。
 
     option.Manual_exposure_value=手動曝光值
 
-    option.BLOOM_STRENGTH=泛光強度
+    option.BLOOM_STRENGTH=光暈強度
 
-    #option.BLOOM_QUALITY=泛光品質
-    #    option.BLOOM_QUALITY.comment=拉低以減少計算泛光的解析度。0.5=默認解析度的一半.
+    #option.BLOOM_QUALITY=光暈品質
 
-    option.FinalR=最終圖像 - 紅色偏移
+    option.FinalR=最終成像-紅光
 
-    option.FinalG=最終圖像 - 綠色偏移
+    option.FinalG=最終成像-綠光
 
-    option.FinalB=最終圖像 - 藍色偏移
+    option.FinalB=最終成像-藍光
 
     screen.Tonemapping=色調映射
         option.TONEMAP=色調映射方法
-            option.TONEMAP.comment=不同的色調映射方法.
-        option.USE_ACES_COLORSPACE_APPROXIMATION=ACES色彩空間的近似值擬合
-            option.USE_ACES_COLORSPACE_APPROXIMATION.comment=ACES=Academy Color Encoding System,是一套顏色編碼系統。決定色調映射是否使用另一個色彩空間.
+            option.TONEMAP.comment=不同的色調映射方法。其中，Uchimura於夜間非常清晰；reinhard有更溫和與中性的顏色；ACESFilm則是漂亮的電影質感。
+        option.USE_ACES_COLORSPACE_APPROXIMATION=近似ACES色彩空間
+            option.USE_ACES_COLORSPACE_APPROXIMATION.comment=使用ACES(Academy Color Encoding System)的標準。
         option.SATURATION=飽和度
             option.SATURATION.comment=負值使顏色不飽和。正值使顏色飽和。0值意味著沒有變化.
         option.CROSSTALK=去飽和度[暫定]
@@ -193,14 +195,14 @@ screen.Camera=鏡頭
         option.DoF_Adaptation_Speed=景深虛化適應速度
 
     screen.Purkinje_effect=薄暮現象
-        option.Purkinje_strength=薄暮現象 - 強度
+        option.Purkinje_strength=薄暮現象強度
             option.Purkinje_strength.comment=模擬眼睛在低光強度下無法清顏色的情況。0值意味著在低曝光情況下沒有薄暮現象.
-        option.Purkinje_strength=薄暮現象 - 強度
+        option.Purkinje_strength=薄暮現象強度
             option.Purkinje_strength.comment=模擬眼睛在低光強度下無法清顏色的情況。0值意味著在低曝光情況下沒有薄暮現象.
-        option.Purkinje_R=薄暮現象 - 紅色程度
-        option.Purkinje_G=薄暮現象 - 綠色程度
-        option.Purkinje_B=薄暮現象 - 藍色程度
-        option.Purkinje_Multiplier=薄暮現象倍率
+        option.Purkinje_R=薄暮現象-紅光
+        option.Purkinje_G=薄暮現象-綠光
+        option.Purkinje_B=薄暮現象-藍光
+        option.Purkinje_Multiplier=薄暮現象乘子
             option.Purkinje_Multiplier.comment=決定薄暮現象影響亮度的程度。
 
 
@@ -240,12 +242,12 @@ screen.Shading=陰影
             option.shadowMapResolution.comment=很大可能會在選擇 16384 選項的時候崩潰遊戲.
         option.CLOUDS_SHADOWS=雲影
         option.CLOUDS_SHADOWS_STRENGTH=雲影強度
-        option.shadowDistanceRenderMul=陰影距離渲染倍數
-            option.shadowDistanceRenderMul.comment=當設置為 -1.0 時,可以提高陰影渲染距離,但是會犧牲性能.
+        option.shadowDistanceRenderMul=陰影距離彩現倍數
+            option.shadowDistanceRenderMul.comment=當設置為 -1.0 時,可以提高陰影彩現距離,但是會犧牲性能.
         option.shadowDistance=陰影距離
-            option.shadowDistance.comment=當 陰影距離渲染倍數 設置為-1.0的時候已經完全不是線性渲染,此時將本選項設置為175可滿足40區塊的渲染距離.
+            option.shadowDistance.comment=當 陰影距離彩現倍數 設置為-1.0的時候已經完全不是線性彩現,此時將本選項設置為175可滿足40區塊的彩現距離.
         option.SHADOW_FRUSTRUM_CULLING=陰影視錐剔除
-            option.SHADOW_FRUSTRUM_CULLING.comment=此功能在1.17+失效。如果啟用此選項,在陰影渲染過程中會剔除大部分不會在玩家視野中投射陰影的方塊。提高性能,但可能會產生不正確圖像,並導致遠處被遮擋的陰影閃爍.
+            option.SHADOW_FRUSTRUM_CULLING.comment=此功能在1.17+失效。如果啟用此選項,在陰影彩現過程中會剔除大部分不會在玩家視野中投射陰影的方塊。提高性能,但可能會產生不正確圖像,並導致遠處被遮擋的陰影閃爍.
         option.CAVE_LIGHT_LEAK_FIX=洞穴漏光修復
             option.CAVE_LIGHT_LEAK_FIX.comment=以粗暴的方式來消除滲入洞穴的陽光。可能會在某些地方覺得特別陰暗.
         option.SHADOW_DISABLE_ALPHA_MIPMAPS=陰影圖禁用半透明MipMaps
@@ -265,22 +267,22 @@ screen.Shading=陰影
             option.USE_LUMINANCE_AS_HEIGHTMAP=用亮度作為高度圖
                 option.USE_LUMINANCE_AS_HEIGHTMAP.comment=可以在任何資源包上生成視差(在某些情況下可能看起來比較奇怪)。
 
-    option.BICUBIC_UPSCALING=雙立方插值升採樣
-        option.BICUBIC_UPSCALING.comment=當渲染精細度不為1x時，提供更好的插值演算法，更慢。
+    option.BICUBIC_UPSCALING=雙立方插值升級
+        option.BICUBIC_UPSCALING.comment=當彩現精細度不為1x時，提供更好的插值演算法，更慢。
 
     option.CONTRAST_ADAPTATIVE_SHARPENING=自我調整對比銳化
 
     option.SHARPENING=銳化
 
 
-#Wavy stuff-搖擺相關
-screen.Wavy_stuff=搖擺相關
+#Wavy stuff-搖動物品
+screen.Wavy_stuff=搖動物品
 
-    option.WAVY_STRENGTH=搖擺強度
+    option.WAVY_STRENGTH=搖動強度
 
-    option.WAVY_SPEED=搖擺速度
+    option.WAVY_SPEED=搖動速率
 
-    option.WAVY_PLANTS=搖擺植物
+    option.WAVY_PLANTS=搖動植物
 
 
 #Water and transparencies-水和半透明方塊
@@ -296,7 +298,7 @@ screen.Water_and_transparencies=水和半透明方塊
     #    option.rayMarchSampleCount.comment=水下體積霧化所使用的採樣數量。
 
     option.SCREENSPACE_REFLECTIONS=螢幕空間反射(SSR)
-        option.SCREENSPACE_REFLECTIONS.comment=在高解析度資源包或者高品質渲染下會非常影響性能,特別是在冰面上的反射.
+        option.SCREENSPACE_REFLECTIONS.comment=在高解析度資源包或者高品質彩現下會非常影響性能,特別是在冰面上的反射.
 
     option.SSR_STEPS=螢幕空間反射步進
 
