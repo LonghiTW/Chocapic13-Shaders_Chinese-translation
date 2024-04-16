@@ -44,7 +44,7 @@ screen.Atmospherics=大氣
             option.cloudMieG.comment=角增益G1控制光在雲層周圍的散射方式。數值越大會形成越明顯的日暈。
         option.cloudMieG2=米氏散射G2值
             option.cloudMieG2.comment=角增益G2控制光在雲層周圍的散射方式。數值越大會形成越明顯的日暈。
-        option.cloudMie2Multiplier=米氏散射乘子
+        option.cloudMie2Multiplier=米氏散射倍率
 
     screen.Fog_Color=霧氣顏色
         option.fog_mieg1=米氏散射G1值
@@ -57,9 +57,9 @@ screen.Atmospherics=大氣
         option.fog_coefficientMieB=米氏散射係數-藍光
 
     screen.Fog_Densities=霧氣密度
-        option.FOG_RAIN_MULTIPLIER=雨天乘子
+        option.FOG_RAIN_MULTIPLIER=雨天倍率
             option.FOG_RAIN_MULTIPLIER.comment=影響雨天的霧氣濃度。※可以降低至0.2來增加清晰度。
-        option.FOG_TOD_MULTIPLIER=時序乘子
+        option.FOG_TOD_MULTIPLIER=時序倍率
             option.FOG_TOD_MULTIPLIER.comment=影響隨遊戲時間變化而改變的霧氣濃度。※可以降低至0.4來增加清晰度。
         option.CLOUDY_FOG_AMOUNT=雲霧數量
             option.CLOUDY_FOG_AMOUNT.comment=※可以降低至0.8來增加清晰度。
@@ -90,14 +90,14 @@ screen.TAA_OPTIONS=時間性反鋸齒(TAA)
     option.NO_CLIP=擷取模式
         option.NO_CLIP.comment=建立一個清晰的影像，但需要關閉反重影功能，適合靜態截圖。
 
-    option.TAA_UPSCALING=TAA升級
-        option.TAA_UPSCALING.comment=降低彩現解析度並利用TAA來增強影像，可以提高效能，但品質比不上直接提高「著色器彩現品質」選項。若要開啟TAA升級功能，請將著色器彩現品質設為1。
+    option.TAA_UPSCALING=TAA放大
+        option.TAA_UPSCALING.comment=降低彩現解析度並利用TAA來提高影像解析度，可以提高效能，但品質比不上直接提高「著色器彩現品質」選項。若要開啟TAA放大功能，請將著色器彩現品質設為1。
 
-    option.RENDER_SCALE_X=X軸彩現解析度乘子
-        option.RENDER_SCALE_X.comment=TAA彩現時的X軸解析度乘子。X軸與Y軸彩現解析度縮放係數務必保持相同。
+    option.RENDER_SCALE_X=X軸彩現解析度倍率
+        option.RENDER_SCALE_X.comment=TAA彩現時的X軸解析度倍率。X軸與Y軸彩現解析度縮放係數務必保持相同。
 
-    option.RENDER_SCALE_Y=Y軸彩現解析度乘子
-        option.RENDER_SCALE_Y.comment=TAA彩現時的Y軸解析度乘子。X軸與Y軸彩現解析度縮放係數務必保持相同。
+    option.RENDER_SCALE_Y=Y軸彩現解析度倍率
+        option.RENDER_SCALE_Y.comment=TAA彩現時的Y軸解析度倍率。X軸與Y軸彩現解析度縮放係數務必保持相同。
 
 
 #Light-照明
@@ -138,13 +138,13 @@ screen.Lighting=照明
             option.MIN_LIGHT_AMOUNT.comment=允許被彩現的最低光量。有助於避免螢幕上的黑點。
         option.SEPARATE_AO=環境光遮蔽開關
         option.ambientOcclusionLevel=環境光遮蔽等級
-        option.Ambient_Mult=環境光強度乘子
+        option.Ambient_Mult=環境光強度倍率
 
 
-#Camera-攝影機
-screen.Camera=攝影機
+#Camera-相機
+screen.Camera=相機
 
-    option.EXPOSURE_MULTIPLIER=曝光乘子
+    option.EXPOSURE_MULTIPLIER=曝光倍率
         option.EXPOSURE_MULTIPLIER.comment=※可以視為提高亮度。
 
     option.Exposure_Speed=曝光速率
@@ -171,89 +171,86 @@ screen.Camera=攝影機
         option.USE_ACES_COLORSPACE_APPROXIMATION=近似ACES色彩空間
             option.USE_ACES_COLORSPACE_APPROXIMATION.comment=使用ACES(Academy Color Encoding System)的標準。
         option.SATURATION=飽和度
-            option.SATURATION.comment=負值使顏色不飽和。正值使顏色飽和。0值意味著沒有變化.
-        option.CROSSTALK=去飽和度[暫定]
-            option.CROSSTALK.comment=使明亮的顏色不飽和,在較暗的區域保持飽和度(如果是負值,則反轉)。有助於去除大多數螢光色.
+            option.SATURATION.comment=正值為飽和化；負值為去飽和；0表示沒有變化。
+        option.CROSSTALK=交錯飽和
+            option.CROSSTALK.comment=正值使明亮區域去飽和，陰暗區域飽和化；負值則相反。
 
     screen.DepthOfField=景深
         option.DOF=景深(DOF)
-            option.DOF.comment=啟用景深選項(對不在聚焦區域的物體進行虛化模糊處理)
-        option.HQ_DOF=高品質景深(HQ DOF)
-            option.HQ_DOF.comment=慢! 強制使用圓形虛化! 使用4倍噪音樣本以消除模糊及大尺寸下的採樣偽影.
-        option.HEXAGONAL_BOKEH=六邊形虛化
-            option.HEXAGONAL_BOKEH.comment=關:圓形虛化。開:六邊形虛化.
+            option.DOF.comment=景深是指焦點前後相對清晰的成像範圍，此範圍之外的物體則會是模糊的。※有需求再開啟即可。
+        option.HQ_DOF=高品質景深
+            option.HQ_DOF.comment=※建議開啟。但使用ReplayMod時請關閉，因為景深效果是跟隨玩家而不是ReplayMod的攝影機，所以錄製的畫面會是模糊的。
+        option.HEXAGONAL_BOKEH=六角散景
+            option.HEXAGONAL_BOKEH.comment=將一般的圓形散景變為六角散景。
         option.AUTOFOCUS=自動對焦
-            option.AUTOFOCUS.comment=此選項為關時,亮度滑塊可以調節手動對焦距離.
         option.focal=焦距
-            option.focal.comment=單位是釐米.
+            option.focal.comment=單位為公分。
         option.aperture=光圈
-            option.aperture.comment=單位是釐米.
+            option.aperture.comment=單位為公分。※此處的光圈僅影響景深的深淺，不像現實中的光圈還會影響亮度。
         option.MANUAL_FOCUS=手動對焦距離
-            option.MANUAL_FOCUS.comment=當 自動對焦 選項關閉時,通過調節此選項確定對焦距離(單位是米).
-        option.FAR_BLUR_ONLY=僅虛化遠處
-            option.FAR_BLUR_ONLY.comment=移除那些比對焦點更靠近鏡頭物體的景深效果.
-        option.DoF_Adaptation_Speed=景深虛化適應速度
+            option.MANUAL_FOCUS.comment=單位為公尺。
+        option.FAR_BLUR_ONLY=僅模糊遠處
+            option.FAR_BLUR_ONLY.comment=移除景深範圍之前(近處)的模糊效果，僅模糊景深範圍之後(遠處)的物體。※一般遊玩時建議開啟，否則連手上的物品都會因景深效果而變得模糊。
+        option.DoF_Adaptation_Speed=景深變化適應速率
 
     screen.Purkinje_effect=薄暮現象
+        screen.Purkinje_effect.comment=薄暮現象係指環境的亮度會影響人眼對色彩的感知。此處即對相機模擬人眼效果。
         option.Purkinje_strength=薄暮現象強度
-            option.Purkinje_strength.comment=模擬眼睛在低光強度下無法清顏色的情況。0值意味著在低曝光情況下沒有薄暮現象.
+            option.Purkinje_strength.comment=0表示沒有薄暮現象。
         option.Purkinje_strength=薄暮現象強度
-            option.Purkinje_strength.comment=模擬眼睛在低光強度下無法清顏色的情況。0值意味著在低曝光情況下沒有薄暮現象.
+            option.Purkinje_strength.comment=0表示沒有薄暮現象。
         option.Purkinje_R=薄暮現象-紅光
         option.Purkinje_G=薄暮現象-綠光
         option.Purkinje_B=薄暮現象-藍光
-        option.Purkinje_Multiplier=薄暮現象乘子
-            option.Purkinje_Multiplier.comment=決定薄暮現象影響亮度的程度。
+        option.Purkinje_Multiplier=薄暮現象倍率
 
 
 #Shading-陰影
 screen.Shading=陰影
 
-    option.Texture_MipMap_Bias=紋理MipMap偏移
-        option.Texture_MipMap_Bias.comment=對紋理使用另一個 MipMap 等級。當提高此項數值時,將增加紋理的細節,但可能會引起大量的白點閃爍。
+    option.Texture_MipMap_Bias=紋理MipMap偏倚
+        option.Texture_MipMap_Bias.comment=MipMap是主圖與多層由主圖逐步降低解析度的小圖所組成的一系列紋理，高解析度的大圖將用於近處；低解析度的小圖則用於遠處。而兩個層級之間的過渡將等比例混合兩個解析度的紋理，此設定便是調整混合時更側重哪一邊。負值偏向高解析度紋理；正值偏向低解析度紋理。
 
     option.DISABLE_ALPHA_MIPMAPS=禁用半透明MipMap
-        option.DISABLE_ALPHA_MIPMAPS.comment=禁用半透明方塊的MipMaps，如樹葉，在某些情況下可能會損失一些影格速率。
+        option.DISABLE_ALPHA_MIPMAPS.comment=禁用半透明方塊的MipMaps，如樹葉。
 
     screen.Shadows=陰影
-        screen.Filtering=降噪
-            option.Variable_Penumbra_Shadows=可變半陰影(VPS)
-                option.Variable_Penumbra_Shadows.comment=距離被投射物體時越遠的陰影越模糊(會降低影格速率).
-            option.VPS_Search_Samples=可變半陰影(VPS)的檢索採樣數
-                option.VPS_Search_Samples.comment=對被投射物體時的檢索採樣次數.
+        screen.Filtering=過濾
+            screen.Filtering.comment=光線完全被物體遮蔽的區域稱為本影區；本影周圍還會有因光線部分被遮蔽而形成的半影區。過濾就是在控制半影的過渡效果。
+            option.Variable_Penumbra_Shadows=可變半影(VPS)
+                option.Variable_Penumbra_Shadows.comment=半影大小(過濾半徑)將隨物體與投影面的距離而改變。
+            option.VPS_Search_Samples=VPS搜尋樣本
             option.Min_Shadow_Filter_Radius=最小陰影過濾半徑
-                option.Min_Shadow_Filter_Radius.comment=如果沒有啟用VPS,此選項數值將用作陰影篩檢程式的大小.
+                option.Min_Shadow_Filter_Radius.comment=未啟用VPS時，陰影過濾半徑固定為此選項的數值。
             option.Max_Shadow_Filter_Radius=最大陰影過濾半徑
-                option.Max_Shadow_Filter_Radius.comment=如果沒有啟用VPS,此選項將不會有作用。當此選項數值設置過大時會出現問題.
+                option.Max_Shadow_Filter_Radius.comment=未啟用VPS時，此選項不會作用。
             option.Max_Filter_Depth=最大過濾深度
-                option.Max_Filter_Depth.comment=此選項數值意味著 在被投射物體時與陰影投射位置的距離大小達到此數值時 陰影篩檢程式的尺寸達到最大.
-            option.SHADOW_FILTER_SAMPLE_COUNT=陰影過濾採樣數
-                option.SHADOW_FILTER_SAMPLE_COUNT.comment=用來過濾實際陰影的採樣數.
+                option.Max_Filter_Depth.comment=物體與投影面的距離達到此數值時，陰影過濾半徑將達到最大值。
+            option.SHADOW_FILTER_SAMPLE_COUNT=陰影過濾樣本數
         screen.SSGI_Parameters=SSGI參數
-            screen.SSGI_Parameters.comment=SSGI: 螢幕空間全域光照.
+            screen.SSGI_Parameters.comment=螢幕空間全域照明(Screen Space Global Illumination, SSGI)。
             option.SSGI=SSGI
-                option.SSGI.comment=SSGI: 螢幕空間全域光照.
-            option.RAY_COUNT=光路數量
-            option.STEPS=步進次數
-            #option.STEP_LENGTH=步進長度
+                option.SSGI.comment=螢幕空間全域照明(Screen Space Global Illumination, SSGI)。為物件添加動態間接照明，並為光源提供動態照明效果。
+            option.RAY_COUNT=光線數量
+            option.STEPS=步數
+            #option.STEP_LENGTH=步長
         option.SCREENSPACE_CONTACT_SHADOWS=螢幕空間接觸陰影
-            option.SCREENSPACE_CONTACT_SHADOWS.comment=在螢幕空間中從太陽獲得投射陰影,以便於在陰影範圍外或者在物體接觸處投射陰影。可能在高解析度情況下有巨大的性能損耗.
+            option.SCREENSPACE_CONTACT_SHADOWS.comment=螢幕空間接觸陰影(Screen Space Contact Shadows)。
         option.shadowMapResolution=陰影貼圖解析度
-            option.shadowMapResolution.comment=很大可能會在選擇 16384 選項的時候崩潰遊戲.
-        option.CLOUDS_SHADOWS=雲影
+            option.shadowMapResolution.comment=※小心！設為16384時會當機！
+        option.CLOUDS_SHADOWS=雲的影子
         option.CLOUDS_SHADOWS_STRENGTH=雲影強度
-        option.shadowDistanceRenderMul=陰影距離彩現倍數
-            option.shadowDistanceRenderMul.comment=當設置為 -1.0 時,可以提高陰影彩現距離,但是會犧牲性能.
+        option.shadowDistanceRenderMul=陰影距離彩現倍率
+            option.shadowDistanceRenderMul.comment=※當設置為-1.0時，「陰影距離」將變為非線性的，可以大幅增加陰影彩現距離。
         option.shadowDistance=陰影距離
-            option.shadowDistance.comment=當 陰影距離彩現倍數 設置為-1.0的時候已經完全不是線性彩現,此時將本選項設置為175可滿足40區塊的彩現距離.
-        option.SHADOW_FRUSTRUM_CULLING=陰影視錐剔除
-            option.SHADOW_FRUSTRUM_CULLING.comment=此功能在1.17+失效。如果啟用此選項,在陰影彩現過程中會剔除大部分不會在玩家視野中投射陰影的方塊。提高性能,但可能會產生不正確圖像,並導致遠處被遮擋的陰影閃爍.
+            option.shadowDistance.comment=※當「陰影距離彩現倍率」設置為-1.0時，陰影距離將變為非線性的，此時將此選項設為128時適用於20區塊左右的距離；175則適用於40區塊的距離。
+        option.SHADOW_FRUSTRUM_CULLING=淘汰視錐外陰影
+            option.SHADOW_FRUSTRUM_CULLING.comment=停止彩現不會在玩家視野中投射出的陰影，可以提高效能。
         option.CAVE_LIGHT_LEAK_FIX=洞穴漏光修復
-            option.CAVE_LIGHT_LEAK_FIX.comment=以粗暴的方式來消除滲入洞穴的陽光。可能會在某些地方覺得特別陰暗.
-        option.SHADOW_DISABLE_ALPHA_MIPMAPS=陰影圖禁用半透明MipMaps
-            option.SHADOW_DISABLE_ALPHA_MIPMAPS.comment=陰影圖禁用半透明方塊的MipMaps,如樹葉,在某些情況下可能會損失一些影格速率。
+        option.SHADOW_DISABLE_ALPHA_MIPMAPS=陰影貼圖禁用半透明MipMaps
+            option.SHADOW_DISABLE_ALPHA_MIPMAPS.comment=陰影貼圖禁用半透明方塊的MipMaps，如樹葉。
         option.Stochastic_Transparent_Shadows=隨機透明陰影
-            option.Stochastic_Transparent_Shadows.comment=強烈建議啟用 陰影禁用透明度mipmaps 選項。使用雜訊來類比透明物體的陰影（並不是彩色的）。也建議增大 最小陰影過濾半徑 選項.
+            option.Stochastic_Transparent_Shadows.comment=利用隨機雜訊來類比透明物體的陰影。※若要啟用此選項，請啟用「陰影貼圖禁用半透明MipMaps」，並增加「最小陰影過濾半徑」。
 
         screen.POM=視差(POM)
             option.POM_MAP_RES=視差貼圖解析度
@@ -267,10 +264,10 @@ screen.Shading=陰影
             option.USE_LUMINANCE_AS_HEIGHTMAP=用亮度作為高度圖
                 option.USE_LUMINANCE_AS_HEIGHTMAP.comment=可以在任何資源包上生成視差(在某些情況下可能看起來比較奇怪)。
 
-    option.BICUBIC_UPSCALING=雙立方插值升級
-        option.BICUBIC_UPSCALING.comment=當彩現精細度不為1x時，提供更好的插值演算法，更慢。
+    option.BICUBIC_UPSCALING=雙立方放大
+        option.BICUBIC_UPSCALING.comment=當彩現解析度小於1時，利用雙立方插值法提高影像解析度。
 
-    option.CONTRAST_ADAPTATIVE_SHARPENING=自我調整對比銳化
+    option.CONTRAST_ADAPTATIVE_SHARPENING=對比自適應銳化
 
     option.SHARPENING=銳化
 
