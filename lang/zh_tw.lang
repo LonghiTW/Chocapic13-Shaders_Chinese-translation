@@ -252,8 +252,8 @@ screen.Shading=陰影
         option.Stochastic_Transparent_Shadows=隨機透明陰影
             option.Stochastic_Transparent_Shadows.comment=利用隨機雜訊來類比透明物體的陰影。※若要啟用此選項，請啟用「陰影貼圖禁用半透明MipMaps」，並增加「最小陰影過濾半徑」。
 
-        screen.POM=視差(POM)
-            option.POM_MAP_RES=視差貼圖解析度
+        screen.POM=視差遮蔽貼圖(POM)
+            option.POM_MAP_RES=視差遮蔽貼圖(POM)解析度
                 option.POM_MAP_RES.comment=提高數值以提升視差品質。
             option.POM=視差(POM)
             option.POM_DEPTH=視差深度
