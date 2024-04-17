@@ -1,5 +1,6 @@
-#shaders/lang/zh_tw.lang
-#Chocapic13 V9
+#https://github.com/LonghiTW/Chocapic13-Shaders_Chinese-translation
+#For Chocapic13 V9
+#Zip in shaders/lang/zh_tw.lang
 #CC BY-NC-SA 4.0
 
 #Atomopherics-大氣
@@ -109,6 +110,7 @@ screen.Lighting=照明
         option.TORCH_G=光源-綠光
         option.TORCH_B=光源-藍光
         option.TORCH_AMOUNT=光源-亮度
+        #option.Emissive_Strength=發光強度    #新版本功能，去掉前面#即可套用翻譯
 
     screen.Sky=天空
         screen.Sky_coefficients=天空係數
@@ -157,7 +159,7 @@ screen.Camera=相機
 
     option.BLOOM_STRENGTH=光暈強度
 
-    #option.BLOOM_QUALITY=光暈品質
+    #option.BLOOM_QUALITY=光暈品質    #新版本功能，去掉前面#即可套用翻譯
 
     option.FinalR=最終成像-紅光
 
@@ -165,9 +167,9 @@ screen.Camera=相機
 
     option.FinalB=最終成像-藍光
 
-    screen.Tonemapping=色調映射
-        option.TONEMAP=色調映射方法
-            option.TONEMAP.comment=不同的色調映射方法。其中，Uchimura於夜間非常清晰；reinhard有更溫和與中性的顏色；ACESFilm則是漂亮的電影質感。
+    screen.Tonemapping=色調貼圖
+        option.TONEMAP=色調貼圖方法
+            option.TONEMAP.comment=不同的色調貼圖方法。其中，Uchimura於夜間非常清晰；reinhard有更溫和與中性的顏色；ACESFilm則是漂亮的電影質感。
         option.USE_ACES_COLORSPACE_APPROXIMATION=近似ACES色彩空間
             option.USE_ACES_COLORSPACE_APPROXIMATION.comment=使用ACES(Academy Color Encoding System)的標準。
         option.SATURATION=飽和度
@@ -233,7 +235,7 @@ screen.Shading=陰影
                 option.SSGI.comment=螢幕空間全域照明(Screen Space Global Illumination, SSGI)。為物件添加動態間接照明，並為光源提供動態照明效果。
             option.RAY_COUNT=光線數量
             option.STEPS=步數
-            #option.STEP_LENGTH=步長
+            #option.STEP_LENGTH=步長    #新版本功能，去掉前面#即可套用翻譯
         option.SCREENSPACE_CONTACT_SHADOWS=螢幕空間接觸陰影
             option.SCREENSPACE_CONTACT_SHADOWS.comment=螢幕空間接觸陰影(Screen Space Contact Shadows)。
         option.shadowMapResolution=陰影貼圖解析度
@@ -253,16 +255,20 @@ screen.Shading=陰影
             option.Stochastic_Transparent_Shadows.comment=利用隨機雜訊來類比透明物體的陰影。※若要啟用此選項，請啟用「陰影貼圖禁用半透明MipMaps」，並增加「最小陰影過濾半徑」。
 
         screen.POM=視差遮蔽貼圖(POM)
-            option.POM_MAP_RES=視差遮蔽貼圖(POM)解析度
-                option.POM_MAP_RES.comment=提高數值以提升視差品質。
-            option.POM=視差(POM)
-            option.POM_DEPTH=視差深度
-            option.MAX_ITERATIONS=最大反覆運算次數
-                option.MAX_ITERATIONS.comment=拉高以提高投射角的品質(降低性能)。
-            option.MAX_DIST=視差最大距離
-                option.MAX_DIST.comment=拉高以增加計算視差的距離。
-            option.USE_LUMINANCE_AS_HEIGHTMAP=用亮度作為高度圖
-                option.USE_LUMINANCE_AS_HEIGHTMAP.comment=可以在任何資源包上生成視差(在某些情況下可能看起來比較奇怪)。
+            screen.POM.comment=
+            option.POM_MAP_RES=POM貼圖解析度
+            option.POM=視差遮蔽貼圖(POM)
+                option.POM.comment=利用視差貼圖生成3D表面或紋理。※若資源包不帶有視差貼圖，就不建議使用POM。
+            #option.Depth_Write_POM=POM貼圖深度    #新版本功能，去掉前面#即可套用翻譯
+            #    option.Depth_Write_POM.comment=調整貼圖的位置，螢幕空間陰影能借此投射陰影到視差貼圖上。
+            option.POM_DEPTH=視差遮蔽貼圖深度
+                option.POM_DEPTH.comment=決定視差遮蔽貼圖的強度。
+            option.MAX_ITERATIONS=最大迭代次數
+            option.MAX_DIST=最大距離
+                option.MAX_DIST.comment=計算POM的最大距離，單位為區塊。
+            option.USE_LUMINANCE_AS_HEIGHTMAP=用亮度作為高度貼圖
+            #option.AutoGeneratePOMTextures=自動生成POM紋理    #新版本功能，去掉前面#即可套用翻譯
+            #    option.AutoGeneratePOMTextures.comment=在任意資源包上生成視差貼圖(類似高度貼圖)。※效果不算太好，若資源包本身不帶有視差貼圖，建議就不要使用POM功能。
 
     option.BICUBIC_UPSCALING=雙立方放大
         option.BICUBIC_UPSCALING.comment=當彩現解析度小於1時，利用雙立方插值法提高影像解析度。
@@ -282,60 +288,49 @@ screen.Wavy_stuff=搖動物品
     option.WAVY_PLANTS=搖動植物
 
 
-#Water and transparencies-水和半透明方塊
-screen.Water_and_transparencies=水和半透明方塊
+#Water and transparencies-水和透明度
+screen.Water_and_transparencies=水和透明度
 
-    option.Dirt_Amount=水體渾濁程度
-        option.Dirt_Amount.comment=水中有多少汙物。
+    option.Dirt_Amount=雜質數量
+        option.Dirt_Amount.comment=決定水的混濁度。
 
-    option.Dirt_Mie_Phase=汙物相位分佈
-        option.Dirt_Mie_Phase.comment=本選項值接近1時,會在太陽周圍形成一個強烈的峰值,在其他地方則很弱,接近0的值意味著均勻的霧氣.
+    option.Dirt_Mie_Phase=雜質米氏散射相位
 
-    #option.rayMarchSampleCount=體積化採樣數
-    #    option.rayMarchSampleCount.comment=水下體積霧化所使用的採樣數量。
+    #option.rayMarchSampleCount=光線行進樣本數量    #新版本功能，去掉前面#即可套用翻譯
+    #    option.rayMarchSampleCount.comment=光線行進是一種用於生成體積霧和雲的方法。使用的樣本數越多，效果越逼真，但效能要求也更高。
 
     option.SCREENSPACE_REFLECTIONS=螢幕空間反射(SSR)
-        option.SCREENSPACE_REFLECTIONS.comment=在高解析度資源包或者高品質彩現下會非常影響性能,特別是在冰面上的反射.
+        option.SCREENSPACE_REFLECTIONS.comment=是否開啟水面倒影、冰面反射的開關。※啟用時會很lag，尤其是使用高解析度資源包或高品質彩現的情況下。
 
-    option.SSR_STEPS=螢幕空間反射步進
+    option.SSR_STEPS=螢幕空間反射步數
 
-    option.USE_QUARTER_RES_DEPTH=25%解析度深度緩衝
-        option.USE_QUARTER_RES_DEPTH.comment=用25%的解析度深度緩衝器來採樣進行螢幕空間反射。提升性能,但是可能會有部分區域顯示不正確.
+    option.USE_QUARTER_RES_DEPTH=深度使用25%解析度
+        option.USE_QUARTER_RES_DEPTH.comment=深度緩衝區僅使用25%解析度來計算螢幕空間反射，從而提高效能。
 
-    option.SUN_MICROFACET_SPECULAR=太陽微表面鏡面貼圖
-        option.SUN_MICROFACET_SPECULAR.comment=啟用此選項將使用更真實的微面模型作為太陽的反射,不啟用則僅反射太陽。對性能沒有影響.
+    option.SUN_MICROFACET_SPECULAR=太陽微面鏡像
 
     option.Water_Top_Layer=水面頂層高度
-        option.Water_Top_Layer.comment=當在水下並且當 光照映射深度估算 關閉時。 假設水面頂層在這個數值對應的高度(Y值)來進行水下照明的計算。如果設置不正確,水下會看起來很奇怪.
+        option.Water_Top_Layer.comment=假設水面頂層高度(Y值)來決定玩家所處水深以進行水下照明的計算。若開啟「光照貼圖深度估算」則不限於此選項設定之絕對高度。 
 
-    option.lightMapDepthEstimation=光照映射深度估算
-        option.lightMapDepthEstimation.comment=如果關閉,將使用玩家的眼睛位置和水面頂層高度選項來確定玩家在水中的深度.這在很多情況下看起來是錯誤的。但如果用原版光照深度來代替可以改善這種情況,但是會在海洋,湖泊和河流表現得更糟糕.
+    option.lightMapDepthEstimation=光照貼圖深度估算
+        option.lightMapDepthEstimation.comment=估算玩家所處水深以進行水下照明的計算。關閉時將以「水面頂層高度」設定來計算水下照明。
 
     screen.Advanced=進階
-        option.Dirt_Scatter_R=汙物紅色擴散
-            option.Dirt_Scatter_R.comment=汙物擴散紅色能力.
-        option.Dirt_Scatter_G=汙物綠色擴散
-            option.Dirt_Scatter_G.comment=汙物擴散綠色能力.
-        option.Dirt_Scatter_B=汙物藍色擴散
-            option.Dirt_Scatter_B.comment=汙物擴散藍色能力.
-        option.Dirt_Absorb_R=汙物紅色吸收
-            option.Dirt_Absorb_R.comment=汙物吸收紅色能力.
-        option.Dirt_Absorb_G=汙物綠色吸收
-            option.Dirt_Absorb_G.comment=汙物吸收綠色能力.
-        option.Dirt_Absorb_B=汙物藍色吸收
-            option.Dirt_Absorb_B.comment=汙物吸收藍色能力.
-        option.Water_Absorb_R=水體紅色吸收
-            option.Water_Absorb_R.comment=水體吸收紅色能力.
-        option.Water_Absorb_G=水體綠色吸收
-            option.Water_Absorb_G.comment=水體吸收綠色能力.
-        option.Water_Absorb_B=水體藍色吸收
-            option.Water_Absorb_B.comment=水體吸收藍色能力.
-
-#9.1版本新增
-#option.Emissive_Strength=發光強度
-
-#option.Depth_Write_POM=視差寫入深度
-#    option.Depth_Write_POM.comment=視差調整了實際的位置，螢幕空間陰影借此投射陰影到視差方塊上
-
-#option.AutoGeneratePOMTextures=自動生成視差紋理
-#    option.AutoGeneratePOMTextures.comment=可以在任意紋理包上生成視差(可能在某些場景下看起來很糟糕)
+        option.Dirt_Scatter_R=雜質散射-紅光
+            option.Dirt_Scatter_R.comment=雜質散射紅光的能力。
+        option.Dirt_Scatter_G=雜質散射-綠光
+            option.Dirt_Scatter_G.comment=雜質散射綠光的能力。
+        option.Dirt_Scatter_B=雜質散射-藍光
+            option.Dirt_Scatter_B.comment=雜質散射藍光的能力。
+        option.Dirt_Absorb_R=雜質吸收-紅光
+            option.Dirt_Absorb_R.comment=雜質吸收紅光的能力。
+        option.Dirt_Absorb_G=雜質吸收-綠光
+            option.Dirt_Absorb_G.comment=雜質吸收綠光的能力。
+        option.Dirt_Absorb_B=雜質吸收-藍光
+            option.Dirt_Absorb_B.comment=雜質吸收藍光的能力。
+        option.Water_Absorb_R=水體吸收-紅光
+            option.Water_Absorb_R.comment=水體吸收紅光的能力。
+        option.Water_Absorb_G=水體吸收-綠光
+            option.Water_Absorb_G.comment=水體吸收綠光的能力。
+        option.Water_Absorb_B=水體吸收-藍光
+            option.Water_Absorb_B.comment=水體吸收藍光的能力。
